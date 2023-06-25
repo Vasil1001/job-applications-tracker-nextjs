@@ -1,0 +1,35 @@
+import { Search } from "lucide-react";
+import React from "react";
+import SearchBar from "./navbar/SearchBar";
+import { IoIosApps } from "react-icons/io";
+import { RiSendPlaneLine } from "react-icons/ri";
+import { BiNotepad } from "react-icons/bi";
+import Image from "next/image";
+
+export default function Header() {
+  return (
+    <header>
+        <Image src="/logo.png" alt="Logo" width={50} height={50} />
+      <div className="flex justify-between">
+        <div className="flex">
+          <IoIosApps size={40} />
+        </div>
+        <div className="flex gap-2.5">
+          <SearchBar />
+          <button className="py-2 px-4 text-black border focus-visible:outline-none focus-visible:ring-1 focus:ring-gray-400 bg-white border-gray-200 sm:text-sm rounded-md hover:border-gray-300 ">
+            User
+          </button>
+        </div>
+      </div>
+
+      <form className="flex justify-between">
+
+      </form>
+      
+      <h1>
+        Job Application tracker + shadcn + zustand + dnd + TanStack Table +
+        Appwrite Cloud + TypeScript
+      </h1>
+    </header>
+  );
+}
