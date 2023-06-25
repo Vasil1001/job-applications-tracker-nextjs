@@ -7,10 +7,9 @@ import ProfileDropdown from "./ProfileDropdown";
 
 export default function Navbar() {
   return (
-    <div className=" pt-7 xl:px-24 transition-all ">
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#eeefef] to-[#e8efef] rounded-md filter blur-xl opacity-50 -z-50"></div>
-
-      <div className="xl:w-7/12 mx-auto">
+    <div className="pt-7 transition-all ">
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#dddddd] to-[#dae0e0] rounded-md filter blur-xl opacity-50 -z-50"></div>
+      <div className="">
         <div className="flex flex-col md:flex-row items-center transition-all ">
           {/* <Navbar /> */}
           {/* <Image
@@ -27,19 +26,19 @@ export default function Navbar() {
           </div>
 
           {/* Search input, button and profile */}
-          <div className="flex items-center gap-3 flex-1 justify-end w-full">
+          <div className="flex items-center flex-1 justify-end w-full">
             <form className=" flex items-center justify-center  flex-1 md:flex-initial transition-all">
               <div className="relative  flex-1 md:flex-initial">
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                   <HiMagnifyingGlass className="w-6 h-6 text-gray-400" />
                 </span>
-                <div className="flex gap-3 h-full">
+                <div className="flex gap-3.5 h-full">
                   <input
                     type="text"
                     className="w-full flex-1 h-full py-2.5 pl-10 pr-4 border shadow-sm focus-visible:outline-none focus-visible:ring-1 focus:ring-gray-400 text-black bg-white border-gray-300 text-sm rounded-lg hover:border-gray-400 placeholder:text-gray-400 focus:placeholder:text-gray-500"
                     placeholder="Search"
                   />
-                  
+
                   <ProfileDropdown />
                 </div>
               </div>
@@ -48,7 +47,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="flex w-full flex-1 mb-1 md:justify-end mt-3">
+        <div className="flex w-full flex-1 md:justify-end mt-3.5">
           <p className="flex flex-1 items-center justify-center text-sm font-light pr-5 shadow-sm rounded-lg p-5 w-fit bg-white italic border border-gray-300 hover:border-gray-300">
             <UserCircleIcon className=" inline-block h-10 w-10 mr-1" />
             GPT is summarizing your daily job applications

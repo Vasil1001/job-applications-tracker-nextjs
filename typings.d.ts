@@ -5,12 +5,9 @@ interface Board {
 }
 
 type TypedColumn =
-  | "applied"
-  | "interviewing"
-  | "offered"
-  | "rejected"
-  | "hired"
-  | "technical";
+  | "Applied"
+  | "Interviewing"
+  | "Rejected"
 
 interface Column {
   id: TypedColumn;
@@ -23,7 +20,7 @@ interface Job {
   title: string;
   status: TypedColumn;
   url: url;
-  description: string;
+  description?: string;
   employer: string;
   image?: Image;
 }

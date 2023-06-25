@@ -1,5 +1,5 @@
 import { databases } from "@/appwrite";
-import { Column, TypedColumn } from "@/typings";
+import { Board, Column, TypedColumn } from "@/typings";
 
 export const getJobsGroupedByColumn = async () => {
   const data = await databases.listDocuments(
@@ -9,11 +9,12 @@ export const getJobsGroupedByColumn = async () => {
   const jobs = data.documents;
   console.log(data.documents);
 
-  // Reduce to separate fetched jobs by their status array
+  // ? Reduce to separate fetched jobs by their status array
   const columns = jobs.reduce((acc, job) => {
     if (!acc.get(job.status)) {
-      acc.set(job.status, { //if there is no job with this status
-        id: job.status,// set initial
+      acc.set(job.status, {
+        //if there is no job with this status
+        id: job.status, // set initial
         jobs: [],
       });
     }
@@ -31,7 +32,40 @@ export const getJobsGroupedByColumn = async () => {
 
     return acc;
   }, new Map<TypedColumn, Column>());
+
   console.log(" ");
   console.log("----- GET JOBS IN STATUS ARRAY/COLUMN -----");
-    console.log(columns);
+  console.log(columns);
+
+  // ? if columns do not have any entries, display them as empty with an add job button
+  const columnTypes: TypedColumn[] = [
+    "Applied",
+    "Interviewing",
+    "Rejected",
+  ];
+
+  for (const columnType of columnTypes) {
+    if (!columns.get(columnType)) {
+      // if there is no column with above status
+      columns.set(columnType, {
+        // create it and populate with empty array
+        id: columnType,
+        jobs: [],
+      });
+    }
+  }
+  console.log(columns);
+
+  // ? Sort columns by same order as the array, Applied -> Interviewing -> Technical -> Rejected -> Offered -> Hired
+  const sortedColumns = new Map(
+    Array.from(columns.entries()).sort(
+      (a, b) => columnTypes.indexOf(a[0]) - columnTypes.indexOf(b[0]) // Sort in same order as orderTypes above
+    )
+  );
+
+  const board: Board = {
+    columns: sortedColumns,
+  };
+
+  return board
 };
