@@ -17,12 +17,8 @@ export default function Header() {
   return (
     <header className="px-7">
       <Navbar />
-
       <JobChartsTab />
-      <h1>
-        Job Application tracker + shadcn + zustand + dnd + TanStack Table +
-        Appwrite Cloud + TypeScript
-      </h1>
+      
     </header>
   );
 }

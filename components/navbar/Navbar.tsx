@@ -3,6 +3,7 @@ import SearchBar from "./SearchBar";
 import { IoIosApps } from "react-icons/io";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
+import ProfileDropdown from "./ProfileDropdown";
 
 export default function Navbar() {
   return (
@@ -22,7 +23,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center font-bold text-3xl hover:p-1 hover:px-4 hover:transition-all delay-150 duration-300 ease-in-out hover:bg-white hover:rounded-lg hover:cursor-pointer  mb-3 md:mb-0">
             <IoIosApps size={40} className="mr-3 " />
-            <span className="text-gray-800">Job Tracker</span>
+            <span className="text-black">Job Tracker</span>
           </div>
 
           {/* Search input, button and profile */}
@@ -38,9 +39,8 @@ export default function Navbar() {
                     className="w-full flex-1 h-full py-2.5 pl-10 pr-4 border shadow-sm focus-visible:outline-none focus-visible:ring-1 focus:ring-gray-400 text-black bg-white border-gray-300 text-sm rounded-lg hover:border-gray-400 placeholder:text-gray-400 focus:placeholder:text-gray-500"
                     placeholder="Search"
                   />
-                  <div className="border flex px-2.5 items-center justify-center shadow-sm focus-visible:outline-none focus-visible:ring-1 focus:ring-gray-400 bg-white text-gray-500 border-gray-300 text-sm rounded-lg hover:border-gray-400">
-                    VD
-                  </div>
+                  
+                  <ProfileDropdown />
                 </div>
               </div>
               <button hidden> Search</button>

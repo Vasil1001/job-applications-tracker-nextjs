@@ -15,12 +15,15 @@ export default function JobChartsTab() {
     <div className="pt-3 xl:px-24 transition-all ">
       <div className="xl:w-7/12 mx-auto">
         <Tabs defaultValue="account" >
-          <TabsList className="grid grid-cols-2 w-full md:w-[400px] border border-gray-300">
-            <TabsTrigger className="" value="account">
-              Charts
+          <TabsList className="grid grid-cols-3 gap-2 bg-zinc-200 w-full md:w-1/2 border border-gray-300">
+            <TabsTrigger className="hover:bg-zinc-300 hover:transition-all" value="account">
+              Jobs List
             </TabsTrigger>
-            <TabsTrigger className="" value="password">
-              Job Applications
+            <TabsTrigger className="hover:bg-zinc-300" value="password">
+              Jobs Board
+            </TabsTrigger>
+            <TabsTrigger className="hover:bg-zinc-300" value="charts">
+              Overview Charts
             </TabsTrigger>
           </TabsList>
           <TabsContent value="account">
