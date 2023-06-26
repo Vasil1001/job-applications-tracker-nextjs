@@ -4,8 +4,14 @@ import { IoIosApps } from "react-icons/io";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import ProfileDropdown from "./ProfileDropdown";
+import { useBoardStore } from "@/store/BoardStore";
 
 export default function Navbar() {
+  const [searchString, setSearchString] = useBoardStore((state) => [
+    state.searchString,
+    state.setSearchString,
+  ])
+
   return (
     <div className="pt-7 transition-all ">
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#dddddd] to-[#dae0e0] rounded-md filter blur-xl opacity-50 -z-50"></div>
@@ -37,6 +43,8 @@ export default function Navbar() {
                     type="text"
                     className="w-full flex-1 h-full py-2.5 pl-10 pr-4 border shadow-sm focus-visible:outline-none focus-visible:ring-1 focus:ring-gray-400 text-black bg-white border-gray-300 text-sm rounded-lg hover:border-gray-400 placeholder:text-gray-400 focus:placeholder:text-gray-500"
                     placeholder="Search"
+                    value={searchString}
+                    onChange={(e) => setSearchString(e.target.value)}
                   />
 
                   <ProfileDropdown />

@@ -7,6 +7,7 @@ import {
   DraggableProvidedDragHandleProps,
   DraggableProvidedDraggableProps,
 } from "react-beautiful-dnd";
+import { useBoardStore } from "@/store/BoardStore";
 
 type Props = {
   job: Job;
@@ -25,17 +26,23 @@ export default function JobCard({
   draggableProps,
   dragHandleProps,
 }: Props) {
+
+  const deleteTask = useBoardStore((state) => state.deleteTask);
   return (
     <div
-      className="bg-white rounded-md space-y-2 drop-shadow-md"
+      className="bg-zinc-100 border border-gray-300 rounded-md space-y-2 mt-5"
       {...draggableProps}
       {...dragHandleProps}
       ref={innerRef}
     >
-      <div className="flex justify-between items-center p-5">
-        <p className="truncate ">{job.title}</p>
+      <div className="flex justify-between items-center p-3 text-baseline ">
+        <div className="flex flex-col overflow-hidden">
+        <p className="text-sm font-semibold ">{job.employer}</p>
+          <p className="truncate overflow-hidden ">{job.title}</p>
+        </div>
+
         <button className="text-gray-500 hover:text-gray-600">
-          <XCircleIcon className="ml-5 h-8 w-8" />
+          <XCircleIcon onClick={() => deleteTask(index, job, id)} className="ml-3 h-7 w-7" />
         </button>
       </div>
     </div>

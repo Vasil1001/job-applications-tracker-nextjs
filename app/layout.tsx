@@ -1,3 +1,4 @@
+import Modal from "@/components/Modal";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -15,7 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body  suppressHydrationWarning={true} className={inter.className}>{children}</body>
+      <body suppressHydrationWarning={true} className={inter.className}>
+        {children}
+        <Modal />
+      </body>
     </html>
   );
 }
