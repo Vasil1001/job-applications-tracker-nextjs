@@ -19,7 +19,7 @@ interface Job {
   $createdAt: string;
   title: string;
   status: TypedColumn;
-  url?: url;
+  url?: string;
   description?: string;
   employer?: string;
   image?: Image;

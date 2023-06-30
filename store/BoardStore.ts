@@ -13,10 +13,10 @@ interface BoardState {
   newJobInput: string
   setNewJobInput: (newJobInput: string) => void
 
-  newJobType: string
+  newJobType: TypedColumn
   setNewJobType: (columnId: TypedColumn) => void
 
-  addTask: (job: string, columnId: TypedColumn, url: string) => void
+  addJob: (job: string, columnId: TypedColumn) => void
   deleteJob: (jobIndex: number, jobId: Job, id: TypedColumn) => void
   updateJobInDB: (job: Job, columnId: TypedColumn) => void
 
@@ -70,7 +70,7 @@ export const useBoardStore = create<BoardState>((set, get) => ({
     )
   },
 
-  addTask: async (job: string, columnId: TypedColumn) => {
+  addJob: async (job: string, columnId: TypedColumn) => {
     const { $id } = await databases.createDocument(
       process.env.NEXT_PUBLIC_DATABASE_ID!,
       process.env.NEXT_PUBLIC_JOBS_COLLECTION_ID!,
