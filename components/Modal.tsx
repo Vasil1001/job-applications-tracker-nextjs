@@ -60,47 +60,22 @@ export default function Modal() {
                     placeholder="Job Link"
                   />
                 </div>
+                <hr/>
+                <h1 className=" pt-2 font-bold">Select status</h1>
                 <TaskTypeRadioGroup />
 
-                {/* <div className="mt-2">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      imagePickerRef.current?.click();
-                    }}
-                    className="w-full border border-gray-300 rounded-md outline-none p-5 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                  >
-                    <PhotoIcon className="h-6 w-6 mr-2 inline-block" />
-                    Upload Image
-                  </button>
-                  {image && (
-                    <Image
-                      alt="Uploaded Image"
-                      width={200}
-                      height={200}
-                      className="w-full h-44 object-cover mt-2 filter hover:grayscale transition-all duration-150 cursor-not-allowed"
-                      src={URL.createObjectURL(image)}
-                      onClick={() => {
-                        setImage(null);
-                      }}
-                    />
-                  )}
-                  <input
-                    type="file"
-                    ref={imagePickerRef}
-                    hidden
-                    onChange={(e) => {
-                      if (!e.target.files![0].type.startsWith("image/")) return;
-                      setImage(e.target.files![0]);
-                    }}
+                <hr/>
+                <h1 className=" py-2 font-bold">Optional Description</h1>
+                <textarea
+                    className="w-full h-full py-2.5 px-4 mb-3 border shadow-sm focus-visible:outline-none focus-visible:ring-1 focus:ring-gray-400 text-black bg-white border-gray-300 rounded-md hover:border-gray-400 placeholder:text-gray-400 focus:placeholder:text-gray-500"
+                    placeholder="Job Description"
                   />
-                </div> */}
-                <div className="mt-4n">
+                <div className="flex justify-end">
                   <button
                     type="submit"
-                    className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:bg-gray-100 disabled:text-gray-300 disabled:cursor-not-allowed"
+                    className="inline-flex justify-center rounded-md border border-transparent bg-black px-4 py-2 text-sm font-medium text-white hover:bg-blue-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:bg-gray-100 disabled:text-gray-300 disabled:cursor-not-allowed"
                   >
-                    Add Job Application
+                    Add Job
                   </button>
                 </div>
               </Dialog.Panel>

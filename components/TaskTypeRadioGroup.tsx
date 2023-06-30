@@ -1,44 +1,45 @@
-"use client";
-import { useBoardStore } from "@/store/BoardStore";
-import { RadioGroup } from "@headlessui/react";
-import { CheckCircleIcon } from "@heroicons/react/24/solid";
-import React from "react";
+"use client"
+import { useBoardStore } from "@/store/BoardStore"
+import { RadioGroup } from "@headlessui/react"
+import { CheckCircleIcon } from "@heroicons/react/24/solid"
+import React from "react"
 
 const types = [
   {
     id: "Applied",
     name: "Applied",
-    description: "A job has been applied to",
-    color: "bg-red-500",
+    description: "I have applied for this position",
+    color: "bg-green-500",
   },
   {
     id: "Interviewing",
     name: "Interviewing",
     description: "In the process of interviewing for this position",
-    color: "bg-yellow-500",
+    color: "bg-blue-500",
   },
   {
     id: "Rejected",
     name: "Rejected",
-    description: "Rejected from position",
-    color: "bg-green-500",
+    description: "Was not selected for position",
+    color: "bg-red-500",
   },
-];
+]
 export default function JobTypeRadioGroup() {
   const [setNewJobType, newJobType] = useBoardStore((state) => [
     state.setNewJobType,
     state.newJobType,
-  ]);
+  ])
+
   return (
-    <div className="w-full py-5">
-      <div className="mx-auto w-full max-w-md">
+    <div className="w-full pb-5 pt-2">
+      <div className="mx-auto w-full max-w-md ">
         <RadioGroup
           value={newJobType}
           onChange={(e) => {
-            setNewJobType(e);
+            setNewJobType(e)
           }}
         >
-          <div className="space-y-2">
+          <div className="space-y-4">
             {types.map((type) => (
               <RadioGroup.Option
                 key={type.id}
@@ -46,15 +47,15 @@ export default function JobTypeRadioGroup() {
                 className={({ active, checked }) => `
                     ${
                       active
-                        ? "ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300"
+                        ? "ring ring-white ring-opacity-60 ring-offset-2 ring-offset-black"
                         : ""
                     }
                     ${
                       checked
-                        ? `${type.color} bg-opacity-75 text-white`
-                        : "bg-white"
+                        ? `${type.color}   bg-opacity-75 ring ring-white ring-offset-2 ring-offset-black text-white`
+                        : "bg-white border border-gray-200 "
                     }
-                    relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none
+                    relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md drop-shadow-sm focus:outline-none
                     `}
               >
                 {({ active, checked }) => (
@@ -64,8 +65,10 @@ export default function JobTypeRadioGroup() {
                         <div className="text-sm">
                           <RadioGroup.Label
                             as="p"
-                            className={`font-medium ${
-                              checked ? "text-white" : "text-gray-900"
+                            className={`font-bold  ${
+                              checked
+                                ? "text-white font-extrabold"
+                                : "text-gray-900"
                             }`}
                           >
                             {type.name}
@@ -94,5 +97,5 @@ export default function JobTypeRadioGroup() {
         </RadioGroup>
       </div>
     </div>
-  );
+  )
 }

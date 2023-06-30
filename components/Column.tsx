@@ -1,21 +1,28 @@
-import { Job, TypedColumn } from "@/typings";
-import React from "react";
-import { Draggable, Droppable } from "react-beautiful-dnd";
-import JobCard from "./JobCard";
-import { PlusCircleIcon } from "@heroicons/react/24/solid";
-import { useBoardStore } from "@/store/BoardStore";
-import { useModalStore } from "@/store/ModalStore";
+import { Job, TypedColumn } from "@/typings"
+import React from "react"
+import { Draggable, Droppable } from "react-beautiful-dnd"
+import JobCard from "./JobCard"
+import { PlusCircleIcon } from "@heroicons/react/24/solid"
+import { useBoardStore } from "@/store/BoardStore"
+import { useModalStore } from "@/store/ModalStore"
 
 type Props = {
-  id: TypedColumn;
-  jobs: Job[];
-  index: number;
-};
+  id: TypedColumn
+  jobs: Job[]
+  index: number
+}
 
 export default function Column({ id, jobs, index }: Props) {
-  const searchString = useBoardStore((state) => state.searchString);
-  const openModal = useModalStore((state) => state.openModal);
+  const [searchString, setNewJobType] = useBoardStore((state) => [
+    state.searchString,
+    state.setNewJobType,
+  ])
+  const openModal = useModalStore((state) => state.openModal)
 
+  const handleAddJob = () => {
+    setNewJobType(id)
+    openModal()
+  }
   return (
     <Draggable draggableId={id} index={index}>
       {(provided) => (
@@ -52,7 +59,10 @@ export default function Column({ id, jobs, index }: Props) {
                   {/* <button className="text-emerald-500 hover:text-green-600">
                     <PlusCircleIcon className="h-10 w-10" />
                   </button> */}
-                  <button onClick={openModal} className="items-center p-3 bg-zinc-50 hover:border-dashed hover:bg-zinc-100 hover:border-zinc-400 border-dashed border-2 border-zinc-300 w-full rounded-md space-y-2 mt-3 drop-shadow-sm">
+                  <button
+                    onClick={handleAddJob}
+                    className="items-center p-3 bg-zinc-50 hover:border-dashed hover:bg-zinc-100 hover:border-zinc-400 border-dashed border-2 border-zinc-300 w-full rounded-md space-y-2 mt-3 drop-shadow-sm"
+                  >
                     <p className="truncate ">Add new</p>
                   </button>
                   {jobs.map((job, index) => {
@@ -62,7 +72,7 @@ export default function Column({ id, jobs, index }: Props) {
                         .toLowerCase()
                         .includes(searchString.toLowerCase())
                     )
-                      return null;
+                      return null
 
                     return (
                       <Draggable
@@ -81,7 +91,7 @@ export default function Column({ id, jobs, index }: Props) {
                           />
                         )}
                       </Draggable>
-                    );
+                    )
                   })}
                   {provided.placeholder}
 
@@ -97,5 +107,5 @@ export default function Column({ id, jobs, index }: Props) {
         </div>
       )}
     </Draggable>
-  );
+  )
 }
