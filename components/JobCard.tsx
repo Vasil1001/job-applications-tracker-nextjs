@@ -29,15 +29,15 @@ export default function JobCard({
   const deleteJob = useBoardStore((state) => state.deleteJob)
   return (
     <div
-      className="bg-zinc-100 border border-gray-300 rounded-md space-y-2 mt-5"
+      className="bg-white border shadow-sm drop-shadow-sm hover:bg-zinc-50 border-gray-300 rounded-md space-y-2 mt-5"
       {...draggableProps}
       {...dragHandleProps}
       ref={innerRef}
     >
-      <div className="flex justify-between items-center p-3 text-baseline ">
+      <div className="flex justify-between items-center p-3 py-2 text-baseline ">
         <div className="flex flex-col overflow-hidden">
           <p className="text-sm font-semibold ">{job.employer}</p>
-          <p className="truncate overflow-hidden ">{job.title}</p>
+      <p className="truncate text-sm overflow-hidden ">{job.title}</p>
         </div>
 
         <button className="text-gray-500 hover:text-gray-600">

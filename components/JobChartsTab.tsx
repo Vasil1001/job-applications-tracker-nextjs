@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
@@ -6,28 +6,32 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Board from "./Board"
 export default function JobChartsTab() {
   return (
     <div className="py-4 pt-4 ">
       <div className="">
-        <Tabs defaultValue="account" >
+        <Tabs defaultValue="account">
           <TabsList className="grid grid-cols-3 gap-2 bg-zinc-200 w-full md:w-1/2 border border-gray-300">
-            <TabsTrigger className="hover:bg-zinc-300 hover:transition-all" value="account">
+            <TabsTrigger
+              className="hover:bg-zinc-300 hover:transition-all"
+              value="account"
+            >
               Jobs Table
             </TabsTrigger>
             <TabsTrigger className="hover:bg-zinc-300" value="password">
               Jobs Board
             </TabsTrigger>
             <TabsTrigger className="hover:bg-zinc-300" value="charts">
-              Overview 
+              Overview
             </TabsTrigger>
           </TabsList>
           <TabsContent value="account">
-            <Card>
+            <Card >
               <CardHeader>
                 <CardTitle>Account</CardTitle>
                 <CardDescription>
@@ -52,28 +56,22 @@ export default function JobChartsTab() {
           <TabsContent value="password">
             <Card>
               <CardHeader>
-                <CardTitle>Password</CardTitle>
+                <CardTitle>Board</CardTitle>
                 <CardDescription>
-                  Change your password here. After saving, yoll be logged out.
+                  A board where you can drag and drop jobs according to their
+                  status.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
-                <div className="space-y-1">
-                  <Label htmlFor="current">Current password</Label>
-                  <Input id="current" type="password" />
-                </div>
-                <div className="space-y-1">
-                  <Label htmlFor="new">New password</Label>
-                  <Input id="new" type="password" />
-                </div>
+                <Board />
               </CardContent>
-              <CardFooter>
-                <Button>Save password</Button>
-              </CardFooter>
+              {/* <CardFooter>
+                
+              </CardFooter> */}
             </Card>
           </TabsContent>
         </Tabs>
       </div>
     </div>
-  );
+  )
 }

@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <div className="pt-7 transition-all ">
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#dddddd] to-[#dae0e0] rounded-md filter blur-xl opacity-50 -z-50"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#eeeeee] to-[#dae0e0] rounded-md filter blur-xl opacity-50 -z-50"></div>
       <div className="">
         <div className="flex flex-col md:flex-row items-center transition-all ">
           {/* <Navbar /> */}

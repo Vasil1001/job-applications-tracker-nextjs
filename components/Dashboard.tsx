@@ -21,7 +21,6 @@ export default function Header() {
 
       <Navbar />
       <JobChartsTab />
-      <Board />
     </header>
   );
 }

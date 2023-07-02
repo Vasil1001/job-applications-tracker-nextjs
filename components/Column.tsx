@@ -39,7 +39,7 @@ export default function Column({ id, jobs, index }: Props) {
                 className={`p-4 rounded-lg shadow-sm ${
                   snapshot.isDraggingOver
                     ? "bg-emerald-400/70"
-                    : "bg-white border border-gray-300"
+                    : "bg-white-100 border shadow-md drop-shadow-sm border-gray-300 max-h-96 no-scrollbar overflow-y-auto "
                 }`}
               >
                 <h2 className="flex justify-between font-bold text-xl">
@@ -55,7 +55,7 @@ export default function Column({ id, jobs, index }: Props) {
                   </span>
                 </h2>
 
-                <div className="space-y-2">
+                <div className="space-y-3">
                   {/* <button className="text-emerald-500 hover:text-green-600">
                     <PlusCircleIcon className="h-10 w-10" />
                   </button> */}
