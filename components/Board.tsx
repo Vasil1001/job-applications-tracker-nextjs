@@ -1,8 +1,10 @@
 "use client"
 import { useBoardStore } from "@/store/BoardStore"
+import { Column } from "@/typings"
 import React, { useEffect } from "react"
 import { DragDropContext, DropResult, Droppable } from "react-beautiful-dnd"
-import Column from "./Column"
+import ColumnComp from "./Column"
+
 
 export default function Board() {
   const [board, getBoard, setBoardState, updateJobInDB] = useBoardStore(
@@ -104,7 +106,7 @@ export default function Board() {
             ref={provided.innerRef}
           >
             {Array.from(board.columns).map(([id, column], index) => (
-              <Column key={id} id={id} jobs={column.jobs} index={index} />
+              <ColumnComp key={id} id={id} jobs={column.jobs} index={index} />
             ))}
           </div>
         )}

@@ -1,10 +1,10 @@
-import React from "react";
-import SearchBar from "./SearchBar";
-import { IoIosApps } from "react-icons/io";
-import { HiMagnifyingGlass } from "react-icons/hi2";
-import { UserCircleIcon } from "@heroicons/react/24/solid";
-import ProfileDropdown from "./ProfileDropdown";
-import { useBoardStore } from "@/store/BoardStore";
+import React from "react"
+import SearchBar from "./SearchBar"
+import { IoIosApps } from "react-icons/io"
+import { HiMagnifyingGlass } from "react-icons/hi2"
+import { UserCircleIcon } from "@heroicons/react/24/solid"
+import ProfileDropdown from "./ProfileDropdown"
+import { useBoardStore } from "@/store/BoardStore"
 
 export default function Navbar() {
   const [searchString, setSearchString] = useBoardStore((state) => [
@@ -55,13 +55,13 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="flex w-full flex-1 md:justify-end mt-3.5">
+        {/* <div className="flex w-full flex-1 md:justify-end mt-3.5">
           <p className="flex flex-1 items-center justify-center text-sm font-light pr-5 shadow-sm rounded-lg p-5 w-fit bg-white italic border border-gray-300 hover:border-gray-300">
             <UserCircleIcon className=" inline-block h-10 w-10 mr-1" />
             GPT is summarizing your daily job applications
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
-  );
+  )
 }

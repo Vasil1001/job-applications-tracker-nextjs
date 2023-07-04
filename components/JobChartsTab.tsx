@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Board from "./Board"
+import JobsList from "./JobsList"
 export default function JobChartsTab() {
   return (
     <div className="py-4 pt-4 ">
@@ -18,39 +19,38 @@ export default function JobChartsTab() {
         <Tabs defaultValue="account">
           <TabsList className="grid grid-cols-3 gap-2 bg-zinc-200 w-full md:w-1/2 border border-gray-300">
             <TabsTrigger
-              className="hover:bg-zinc-300 hover:transition-all"
+              className="hover:bg-zinc-100 hover:transition-all"
               value="account"
             >
-              Jobs Table
+              Table List
             </TabsTrigger>
-            <TabsTrigger className="hover:bg-zinc-300" value="password">
+            <TabsTrigger className="hover:bg-zinc-100" value="password">
               Jobs Board
             </TabsTrigger>
-            <TabsTrigger className="hover:bg-zinc-300" value="charts">
+            <TabsTrigger className="hover:bg-zinc-100" value="charts">
               Overview
             </TabsTrigger>
           </TabsList>
           <TabsContent value="account">
-            <Card >
+            <Card>
               <CardHeader>
-                <CardTitle>Account</CardTitle>
+                <CardTitle>List of Jobs</CardTitle>
                 <CardDescription>
-                  Make changes to your account here. Click save when youre done.
+                  <div className="flex justify-between">
+                    <span>
+                      Make changes to your account here. Click save when youre
+                      done.
+                    </span>
+                    <button className="font-semibold text-sm tracking-tight rounded-md bg-[#000000] py-2 px-3 text-white hover:bg-[#2f2f31]">
+                      Add new
+                    </button>
+                  </div>
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
-                <div className="space-y-1">
-                  <Label htmlFor="name">Name</Label>
-                  <Input id="name" defaultValue="Pedro Duarte" />
-                </div>
-                <div className="space-y-1">
-                  <Label htmlFor="username">Username</Label>
-                  <Input id="username" defaultValue="@peduarte" />
-                </div>
+                <JobsList />
               </CardContent>
-              <CardFooter>
-                <Button>Save changes</Button>
-              </CardFooter>
+              <CardFooter></CardFooter>
             </Card>
           </TabsContent>
           <TabsContent value="password">

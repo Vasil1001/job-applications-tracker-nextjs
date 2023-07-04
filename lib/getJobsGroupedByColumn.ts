@@ -7,7 +7,7 @@ export const getJobsGroupedByColumn = async () => {
     process.env.NEXT_PUBLIC_JOBS_COLLECTION_ID!
   );
   const jobs = data.documents;
-  console.log(data.documents);
+  console.log("Grouped docs", data.documents);
 
   // ? Reduce to separate fetched jobs by their status array
   const columns = jobs.reduce((acc, job) => {
@@ -33,9 +33,9 @@ export const getJobsGroupedByColumn = async () => {
     return acc;
   }, new Map<TypedColumn, Column>());
 
-  console.log(" ");
-  console.log("----- GET JOBS IN STATUS ARRAY/COLUMN -----");
-  console.log(columns);
+  // console.log(" ");
+  // console.log("----- GET JOBS IN STATUS ARRAY/COLUMN -----");
+  // console.log(columns);
 
   // ? if columns do not have any entries, display them as empty with an add job button
   const columnTypes: TypedColumn[] = [

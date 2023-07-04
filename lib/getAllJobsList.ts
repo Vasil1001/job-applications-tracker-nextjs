@@ -11,4 +11,5 @@ export const getAllJobsList = async () => {
   console.log("----- ALL JOBS IN A LIST -----");
   console.log(data.documents);
   
+  return jobs
 };
